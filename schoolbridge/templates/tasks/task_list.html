@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>Tasks</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>Title:</strong> {{ task.title }}<br>
+                <strong>Description:</strong> {{ task.description }}<br>
+                <strong>Due Date:</strong> {{ task.due_date }}<br>
+                <strong>Completed:</strong> {% if task.completed %}Yes{% else %}No{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

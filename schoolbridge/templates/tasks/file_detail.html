@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Detail</title>
+</head>
+<body>
+    <h1>{{ file.name }}</h1>
+    <p>Uploaded by: {{ file.teacher.username }}</p>
+    <p>Download: <a href="{{ file.file.url }}">Download File</a></p>
+    <a href="{% url 'file_list' %}">Back to File List</a>
+</body>
+</html>

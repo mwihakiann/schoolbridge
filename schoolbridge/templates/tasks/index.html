@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent-Teacher Communication App</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Parent-Teacher Communication App</h1>
+        {% if user.is_authenticated %}
+            <p>You are logged in as {{ user.get_full_name|default:user.username }}.</p>
+        {% else %}
+            <p>You are not logged in. <a href="{% url 'login' %}">Log in</a></p>
+        {% endif %}
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'message_list' %}">Messages</a></li>
+            {% if user.is_teacher %}
+                <li><a href="{% url 'announcement_list' %}">Announcements</a></li>
+                <li><a href="{% url 'task_list' %}">Tasks</a></li>
+                <li><a href="{% url 'gradebook' %}">Gradebook</a></li>
+                <li><a href="{% url 'file_upload' %}">File Upload</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <footer>
+        <p>&copy; {{ current_year }} Parent-Teacher Communication App</p>
+    </footer>
+</body>
+</html>
